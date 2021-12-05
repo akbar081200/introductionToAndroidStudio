@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Custom_Listview</string>
+    <string-array name="angkatan_spinner">
+        <item>2017</item>
+        <item>2018</item>
+        <item>2019</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
