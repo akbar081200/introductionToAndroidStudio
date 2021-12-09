@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.clientServer">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,8 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.clientServer"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.example.clientServer.UserActivity"></activity>
-        <activity android:name="com.example.clientServer.Activity.MainActivity">
+        <activity
+            android:name=".Activity.TambahActivity"
+            android:parentActivityName=".Activity.MainActivity"
+            android:exported="true" />
+        <activity android:name=".UserActivity" />
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

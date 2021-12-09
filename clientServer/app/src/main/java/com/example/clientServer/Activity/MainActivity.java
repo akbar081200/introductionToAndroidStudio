@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,6 +27,7 @@ import com.example.clientServer.Model.DataModel;
 import com.example.clientServer.Model.ResponseModel;
 import com.example.clientServer.R;
 import com.example.clientServer.databinding.ActivityMainBinding;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private List<DataModel> listMahasiswa = new ArrayList<>();
     private SwipeRefreshLayout srlData;
     private ProgressBar pbData;
+    private FloatingActionButton fabTambah;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
         pbData = findViewById(R.id.pb_data);
         lmData = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvData.setLayoutManager(lmData);
+        fabTambah = findViewById(R.id.fab_tambah);
+
 //        retrieveData();
 
         srlData.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -61,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
                 srlData.setRefreshing(true);
                 retrieveData();
                 srlData.setRefreshing(false);
+            }
+        });
+
+        fabTambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, TambahActivity.class));
             }
         });
     }
@@ -83,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 int kode = response.body().getKode();
                 String pesan = response.body().getPesan();
 
-                Toast.makeText(MainActivity.this, "Kode : "+kode+" | Pesan : "+pesan, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "Kode : "+kode+" | Pesan : "+pesan, Toast.LENGTH_SHORT).show();
 
                 listMahasiswa = response.body().getData();
 
