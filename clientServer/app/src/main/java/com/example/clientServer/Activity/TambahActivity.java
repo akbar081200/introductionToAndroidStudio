@@ -19,7 +19,7 @@ import retrofit2.Response;
 
 public class TambahActivity extends AppCompatActivity {
 
-    private EditText etNama, etEmail, etFakultas, etProdi, etStatus, etNim, etAngkatan,etSemester;
+    private EditText etNama, etEmail, etFakultas, etProdi, etStatus, etNim, etAngkatan, etSemester;
     private Button btnSimpan;
     private String nama, email, fakultas, prodi, status, nim, angkatan, semester;
 

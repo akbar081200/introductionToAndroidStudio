@@ -13,9 +13,13 @@
         android:theme="@style/Theme.clientServer"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Activity.UbahActivity"
+            android:exported="true"
+            android:parentActivityName=".Activity.MainActivity"/>
+        <activity
             android:name=".Activity.TambahActivity"
-            android:parentActivityName=".Activity.MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".Activity.MainActivity" />
         <activity android:name=".UserActivity" />
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
